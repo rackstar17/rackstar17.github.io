@@ -1,0 +1,56 @@
+ {
+    "companies": [
+      {
+        "name": "DoSelect",
+        "position": "Front-end Intern", 
+        "start": "Jun 2016",
+        "end": "Aug 2016"
+      },
+      {
+        "name": "Dure Technolgies",
+        "position": "Web Intern", 
+        "start": "Jun 2015",
+        "end": "Aug 2015"
+      }
+    ],
+    "schools": [
+      {
+        "name": "Jaypee Institute of Information Technology",
+        "position": "B.Tech",
+        "start": 2013,
+        "end": "present"
+      }
+    ],
+    "basicInfo": {
+      "name": "Himanshu Aggarwal",
+      "bio": "I like to listen Music and have a special interest towards web development  Functional UI gives me joy and I love to add functionality to user interfaces and create amazing web stuff",
+      "skills": ["AngularJS", "Javascript", "Python", "C++", "NodeJS", "ExpressJS", "MongoDB"],
+      "currentLocation": "Noida"
+    },
+    "projects": [
+	    {
+	    	"name": "Socket Screen Share (Minor 2)",
+	    	"description": "It was a networking based project in which we tried to implement screen sharing concept using sockets and python",
+	    	"start": "Jan 2016",
+	    	"end": "Jun 2016" 
+	    },
+	    {
+	    	"name": "Recommendation Engine",
+	    	"description": "A simple web app which took user travel choices like cost , adventure , food etc and suggested best possible travel options. Tech Stack - Node JS , MongoDB , HTML , CSS , Javascript",
+	    	"start": "Feb 2016",
+	    	"end": "Mar 2016" 
+	    },
+	    {
+	    	"name": "India Meets (Minor 1)",
+	    	"description": "A web based project in which user can create, edit, join and search for events like social events, educational events etc. Tech Stack used - Node JS, Express JS, Angularjs, MongoDB, HTML, CSS, MaterializeCSS",
+	    	"start": "Sep 2015",
+	    	"end": "Dec 2015" 
+	    },
+	    {
+	    	"name": "Red Connect",
+	    	"description": "A Web project in which users can request for blood and also users can also add request to donate blood . Tech Stack used - Jquery, HTML, Materialize CSS",
+	    	"start": "Jun 2015",
+	    	"end": "Aug 2015" 
+	    }
+    ]
+ }

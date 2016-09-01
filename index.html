@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="himanshuProfile" ng-cloak ng-controller="mainApp">
 <head>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>Himanshu Aggarwal</title>
@@ -12,36 +12,38 @@
 	<!-- Custom CSS -->
 	<link rel="stylesheet" type="text/css" href="app.css">
 </head>
-<body ng-app="himanshuProfile" ng-cloak ng-controller="mainApp">
 
+<body>
+
+<!-- Profile picture -->
 	<div layout="row" class="intro" layout-wrap>
 		<div layout="column" flex="100">
 			<md-list flex="100">
-	      <md-list-item class="md-3-line profile-picture-container">
-	        <img ng-src="himanshu.png" class="profile-picture">
-	        <div class="md-list-item-text" layout="column" style="padding-left: 20px;">
-	        	<h1> {{ himanshu.name }} </h1>
-	        	<h3 style="color:#cccdd1;"> <md-icon class="material-icons" style="color:#cccdd1;"> work </md-icon> {{ himanshu.currentStatus }} </h3>
-	        	<br>
-	        	<p style="color:#cccdd1;"> <md-icon class="material-icons" style="color:#cccdd1;"> location_on </md-icon> {{ himanshu.currentLocation }} </p>
-	        </div>
-	      </md-list-item>
-	    </md-list>
+		      <md-list-item class="md-3-line profile-picture-container">
+		        <img ng-src="himanshu.png" class="profile-picture">
+		        <div class="md-list-item-text" layout="column" style="padding-left: 20px;">
+		        	<h1> {{ profileData.basicInfo.name }} </h1>
+		        	<h3 style="color:#cccdd1;"> <md-icon class="material-icons" style="color:#cccdd1;"> work </md-icon> {{ profileData.basicInfo.currentStatus }} </h3>
+		        	<br>
+		        	<p style="color:#cccdd1;"> <md-icon class="material-icons" style="color:#cccdd1;"> location_on </md-icon> {{ profileData.basicInfo.currentLocation }} </p>
+		        </div>
+		      </md-list-item>
+		    </md-list>
 		</div>
 
 		<!-- Description -->
-	  <div layout="column" class="biopic" flex="80">
+	  <div layout="column" class="biopic" style="width: 80%;">
 	  	<md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
 		    <div class="header" layout="row" layout-align="start center">Description</div>
 		    <div layout="row" layout-wrap>
 		    	<div layout="row" style="padding-left: 20px; padding-right: 20px;" layout-wrap flex="100">
 			    	<h3 class="md-body-2" layout="row" layout-align="start center" style="font-size: 16px; margin-bottom: -10px;" flex="100">Bio</h3>
-			    	<p class="md-subhead" style="color: #827e7e;"> {{ himanshu.bio }} </p>
+			    	<p class="md-subhead" style="color: #827e7e; font-weight: 400;"> {{ profileData.basicInfo.bio }} </p>
 			    </div>
 			    <div layout="row" style="padding-left: 20px; padding-right: 20px;" layout-wrap flex="100">
 			    	<h3 class="md-body-2" layout="row" layout-align="start center" style="font-size: 16px; margin-bottom: 0px;" flex="100">Skills</h3>
 			    	<md-chips
-			        ng-model="himanshu.skills"
+			        ng-model="profileData.basicInfo.skills"
 			        readonly = "true"
 			        md-removable="false" style="margin-left: -10px;">
 			      </md-chips>
@@ -52,12 +54,12 @@
 	  </div>
 
 	  <!-- Work experience -->
-	  <div layout="column" class="work" flex="80">
+	  <div layout="column" class="work" style="width: 80%;">
 	  	<md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
 		    <div class="header" layout="row" layout-align="start center">Work Experience</div>
 		    <div layout="row" layout-wrap>
 		    	<md-list flex>
-		        <md-list-item class="md-3-line" ng-repeat="company in companies">
+		        <md-list-item class="md-3-line" ng-repeat="company in profileData.companies">
 		          <div class="md-list-item-text" layout="column" style="padding-left: 8px; padding-right: 10px; padding-top: 5px; padding-bottom: 5px;">
 		            <div class="md-body-2">{{ company.name }}</div>
 		            <h4 class="md-subhead" style="color: #827e7e;">{{ company.position }}</h4>
@@ -70,12 +72,12 @@
 	  </div>
 
 	  <!-- Education -->
-	  <div layout="column" class="education" flex="80">
+	  <div layout="column" class="education" style="width: 80%;">
 	  	<md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
 		    <div class="header" layout="row" layout-align="start center">Education</div>
 		    <div layout="row" layout-wrap>
 		    	<md-list flex>
-		        <md-list-item class="md-3-line" ng-repeat="school in schools">
+		        <md-list-item class="md-3-line" ng-repeat="school in profileData.schools">
 		          <div class="md-list-item-text" layout="column" style="padding-left: 8px; padding-right: 10px; padding-top: 5px; padding-bottom: 5px;">
 		            <div class="md-body-2">{{ school.name }}</div>
 		            <h4 class="md-subhead" style="color: #827e7e;">{{ school.position }}</h4>
@@ -87,16 +89,38 @@
 	  	</md-card>
 	  </div>
 
+	  <div layout="column" class="projects" style="width: 80%;"> 
+	  	<md-card md-theme="{{ showDarkTheme ? 'dark-grey' : 'default' }}" md-theme-watch>
+	  		<div class="header" layout="row" layout-align="start center">Projects</div>
+	  		<div layout="row" layout-wrap> 
+		  		<md-list flex>
+			        <md-list-item class="md-3-line" ng-repeat="project in profileData.projects">
+			          <div class="md-list-item-text" layout="column" style="padding-left: 8px; padding-right: 10px; padding-top: 5px; padding-bottom: 5px;">
+			          	<div class="md-body-2" layout="row" layout-align="start center" flex="50"> {{ project.name }} </div>
+			            <p class="md-subhead" style="color: #827e7e; font-weight: 400;">{{ project.description }}</p>
+			            <p class="md-subhead" style="color: #827e7e;">{{ project.start }} - {{ project.end }}</p>
+			          </div>
+				        <br>
+			        </md-list-item>
+			      </md-list>
+		  	</div>
+	  	</md-card>
+	  </div>
+
 	</div>
 
 
 	<!-- External JS -->
 	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular.min.js"></script>
-  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
-  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
-  	<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-animate.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-aria.min.js"></script>
+  <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.3/angular-messages.min.js"></script>
 	<script src="https://ajax.googleapis.com/ajax/libs/angular_material/1.1.0-rc2/angular-material.min.js"></script>
 	<!-- Custom JS -->
 	<script type="text/javascript" src="app.js"></script>
+	<!-- Services -->
+	<script type="text/javascript" src="services.js"></script>
+	<!-- Controllers -->
+	<script type="text/javascript" src="controller.js"></script>
 </body>
 </html>
