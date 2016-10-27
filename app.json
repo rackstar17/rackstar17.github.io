@@ -1,6 +1,12 @@
  {
     "companies": [
       {
+        "name": "Mozilla",
+        "position": "Contract developer(MWOS)",
+        "start": "Oct 2016",
+        "end": "present"
+      },
+      {
         "name": "DoSelect",
         "position": "Front-end Intern", 
         "start": "Jun 2016",
